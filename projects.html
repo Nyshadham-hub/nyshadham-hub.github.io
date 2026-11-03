@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#000000"><meta name="description" content="M.Tech Geoinformatics, NIT Warangal. SAR, hyperspectral and DEM analysis. Open to Geospatial and GIS Analyst roles."><title>Projects | Nyshadham Sai Karthikeya</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<svg id="scene" aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 800"></svg>
+<header><nav aria-label="Main"><b><a href="index.html" style="text-decoration:none">N. Sai Karthikeya</a></b><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="projects.html" aria-current="page">Projects</a><a href="skills.html">Skills</a><a href="awards.html">Awards</a><a href="contact.html">Contact</a></nav></header>
+<main>
+<section id="projects">
+<h2>Projects and research</h2>
+<div class="grid">
+<article class="card"><span class="y">2026</span><h3>DEM Accuracy Assessment for Telangana</h3>
+<div class="tags"><span>Python</span><span>GDAL</span><span>PyProj</span><span>QGIS</span></div>
+<ul><li>Validated SRTM, NASADEM, CartoDEM, ALOS AW3D30 and Copernicus GLO-30 against 3,014 Survey of India levelling benchmarks.</li><li>Copernicus ranked most accurate (ubRMSE 5.13 m), then ALOS (5.26 m), NASADEM (5.40 m), SRTM (5.76 m), CartoDEM (6.34 m).</li><li>Converted EGM2008 to EGM96 with the NGA grid, removing a geoid bias of up to 1.5 m.</li><li>Accepted at IEEE InGRASS 2026.</li></ul></article>
+<article class="card"><span class="y">2026</span><h3>Sentinel-1 InSAR DEM Pipeline</h3>
+<div class="tags"><span>Python</span><span>SNAP</span><span>SNAPHU</span><span>GDAL</span></div>
+<ul><li>End-to-end pipeline: queries ASF for Sentinel-1 IW SLC scenes over Telangana and selects pairs by temporal and perpendicular baseline.</li><li>Automates the 14-step SNAP workflow through GPT graphs, from precise orbits to terrain correction.</li><li>Mosaics sub-swath DEMs into a 30 m GeoTIFF with resume, logging and fallback geocoding.</li><li>Ongoing: validation against the same benchmarks and extension to NISAR.</li></ul></article>
+<article class="card"><span class="y">2026</span><h3>Smart Campus Navigation System</h3>
+<div class="tags"><span>JavaScript</span><span>PostGIS</span><span>PostgreSQL</span><span>Web GIS</span></div>
+<ul><li>Web GIS for NIT Warangal covering 500+ acres, 50+ buildings and 500+ rooms.</li><li>Buildings, rooms and roads structured as spatial layers for facility planning, room allocation and maintenance.</li><li>Next: live tracking of the campus transport vehicle, “Yari”.</li></ul></article>
+<article class="card"><span class="y">2026</span><h3>NISAR SAR Backscatter Processing</h3>
+<div class="tags"><span>Python</span><span>QGIS</span><span>GDAL</span></div>
+<ul><li>Processed 500+ MB of NISAR L2 GSLC HH data into backscatter (dB).</li><li>Applied a 7×7 Refined Lee filter and exported georeferenced GeoTIFFs.</li><li>Mapped terrain, vegetation, water and radar shadow for land cover work.</li></ul></article>
+<article class="card"><span class="y">2025</span><h3>Chandrayaan-2 IIRS Spectral Analysis</h3>
+<div class="tags"><span>Python</span><span>Hyperspectral</span></div>
+<ul><li>Analysed 256-band IIRS data (0.8 to 5 µm).</li><li>Found U-shaped spectral curves indicating pyroxene and olivine in lunar regolith.</li><li>Detected absorption near 3 µm suggesting possible hydroxyl or water traces.</li></ul></article>
+<article class="card"><span class="y">2025</span><h3>Durgam Cheruvu Change Detection</h3>
+<div class="tags"><span>Google Earth Engine</span><span>QGIS</span></div>
+<ul><li>Mapped full tank level changes over 15 years from Landsat time series.</li><li>Quantified 40% built-up expansion into the 50 m buffer zone using NDWI.</li></ul></article>
+</div>
+</section>
+</main>
+<footer>© 2026 Nyshadham Sai Karthikeya. M.Tech Geoinformatics, NIT Warangal. Based in Telangana, India.</footer>
+<script src="scene.js"></script>
+</body></html>

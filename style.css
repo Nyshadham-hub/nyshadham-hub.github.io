@@ -1,0 +1,70 @@
+:root{--bg:#000;--surface:rgba(8,8,10,.82);--ink:#fff;--muted:#ececec;--line:#333;--accent:#fff;--accent-ink:#000;--warm:#ffb938;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.65 "Times New Roman",Times,serif}
+h1,h2,h3{font-family:"Times New Roman",Times,serif;line-height:1.1;margin:0;letter-spacing:-.01em}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{max-width:1080px;margin:auto;padding:14px 24px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+nav b{font:800 18px "Times New Roman",Times,serif;margin-right:auto;color:var(--ink)}
+nav a{color:var(--muted);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--accent)}
+nav button{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;font:inherit;font-size:14px}
+main{max-width:1080px;margin:auto;padding:0 24px}
+.hero{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center;padding:72px 0 64px}
+.hero h1{font-size:clamp(40px,7vw,76px);font-weight:800}
+.role{font:500 clamp(19px,2.4vw,25px)/1.35 "Times New Roman",Times,serif;color:var(--accent);margin:18px 0 14px}
+.hero p{max-width:56ch;color:var(--muted);margin:0 0 26px}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--warm);color:#fff;border-radius:99px;padding:4px 14px;font-size:15px;margin-bottom:20px;font-weight:500}
+.badge i{width:9px;height:9px;border-radius:50%;background:var(--warm);animation:pulse 2s ease-in-out 3}
+@keyframes pulse{50%{opacity:.25}}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 22px;border-radius:8px;text-decoration:none;font-weight:500;border:1.5px solid var(--accent)}
+.btn.p{background:var(--accent);color:var(--accent-ink)}
+.photo{width:100%;max-width:380px;justify-self:center;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:4px 80px 4px 80px;border:1px solid var(--line)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:28px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.facts div{border-left:3px solid var(--accent);padding:2px 0 2px 14px}
+.facts b{display:block;font:700 26px "Times New Roman",Times,serif}
+.facts span{color:var(--muted);font-size:15px}
+.item{display:grid;grid-template-columns:170px 1fr;gap:12px 28px;padding:0 0 34px}
+.when{color:var(--muted);font-size:15px}
+.item h3{font-size:21px;margin-bottom:2px}
+.org{color:var(--accent);font-weight:500;margin:0 0 8px}
+ul{margin:0;padding-left:20px}li{margin:0 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.card{background:var(--surface);backdrop-filter:blur(3px);border:1px solid var(--line);border-radius:6px;padding:24px}
+.card h3{font-size:20px;margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.tags span{font-size:13px;color:var(--accent);border:1px solid var(--line);border-radius:4px;padding:1px 8px}
+.card ul{font-size:15.5px;color:var(--muted)}
+.card .y{float:right;color:var(--muted);font-size:14px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.skills h3{font-size:18px;margin-bottom:8px}
+.skills p{margin:0;color:var(--muted)}
+.contact{text-align:left}
+.contact a.big{font:700 clamp(22px,4vw,38px) "Times New Roman",Times,serif;text-decoration:none;overflow-wrap:anywhere}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+footer{max-width:1080px;margin:auto;padding:28px 24px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media(max-width:820px){.hero,.two{grid-template-columns:1fr}.hero{padding-top:40px}.photo{order:-1;max-width:260px}.item{grid-template-columns:1fr;gap:4px}nav{gap:14px}}
+@media(prefers-reduced-motion:reduce){.badge i{animation:none}html{scroll-behavior:auto}}
+main{min-height:62vh}
+nav a[aria-current]{color:#fff;border-bottom:2px solid #fff}
+nav b a{color:#fff}
+.view[hidden]{display:none}
+
+/* Home hero: portrait replaces the moon; moonlight spills from behind it */
+body[data-home]{overflow-x:clip}
+.hero-art{position:relative;isolation:isolate;justify-self:center;width:100%;max-width:400px;padding:7% 0}
+.hero-art::before{content:"";position:absolute;inset:-16%;z-index:-2;border-radius:50%;background:radial-gradient(circle,rgba(235,240,255,.36) 0%,rgba(190,205,240,.15) 42%,transparent 70%);filter:blur(14px);animation:moonpulse 7s ease-in-out infinite}
+.hero-art .moon{position:absolute;z-index:-1;top:-6%;right:-14%;width:78%;max-width:none;aspect-ratio:1;border-radius:50%;object-fit:cover;mix-blend-mode:screen;filter:brightness(1.25) contrast(1.05) drop-shadow(0 0 36px rgba(220,230,255,.55))}
+.hero-art .photo{position:relative;z-index:1;display:block;width:80%;max-width:none;margin-inline:auto;border-color:rgba(235,240,255,.4);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 34px 5px rgba(210,222,255,.45),0 0 100px 24px rgba(190,205,240,.22)}
+@keyframes moonpulse{0%,100%{opacity:.8}50%{opacity:1}}
+@media(max-width:820px){.hero-art{order:-1;max-width:300px}}
+@media(prefers-reduced-motion:reduce){.hero-art::before{animation:none}}
