@@ -92,3 +92,4 @@ body[data-home]{overflow-x:clip}
 /* Keep text readable over the full-brightness moon */
 main{text-shadow:0 1px 2px rgba(0,0,0,.95),0 0 10px rgba(0,0,0,.85),0 0 22px rgba(0,0,0,.6)}
 .hero-art .photo,.card,.gallery button{text-shadow:none}
+.btn,.btn.p{text-shadow:none}
