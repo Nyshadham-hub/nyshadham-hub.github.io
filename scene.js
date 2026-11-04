@@ -22,12 +22,12 @@ var mx=900,my=330,mr=125,rot=-22,o={rx:330,ry:95};
 var ring=E('ellipse',{rx:o.rx,ry:o.ry,fill:'none',stroke:'#fff','stroke-width':.9,'stroke-dasharray':'3 8',opacity:.45,transform:'translate('+mx+' '+my+') rotate('+rot+')'});
 E('circle',{cx:mx,cy:my,r:mr*1.9,fill:'url(#mh)',opacity:.5});
 var cp=E('clipPath',{id:'mc'},d);E('circle',{cx:mx,cy:my,r:mr*.985},cp);
-var im=E('image',{x:mx-mr,y:my-mr,width:mr*2,height:mr*2,'clip-path':'url(#mc)',opacity:.4,preserveAspectRatio:'xMidYMid slice'});
+var im=E('image',{x:mx-mr,y:my-mr,width:mr*2,height:mr*2,'clip-path':'url(#mc)',opacity:1,preserveAspectRatio:'xMidYMid slice'});
 im.setAttribute('href','moon.jpg');im.setAttributeNS('http://www.w3.org/1999/xlink','href','moon.jpg');
 
 var q=E('g',{});
 /* On phones the text covers the moon, so soften everything behind it */
-function tune(){var tall=innerWidth<innerHeight*.9;im.setAttribute('opacity',tall?.28:.4);ring.setAttribute('opacity',tall?.25:.45);q.style.opacity=tall?.55:1}
+function tune(){var tall=innerWidth<innerHeight*.9;im.setAttribute('opacity',tall?.5:1);ring.setAttribute('opacity',tall?.25:.45);q.style.opacity=tall?.55:1}
 tune();addEventListener('resize',tune);
 E('rect',{x:-7,y:-6,width:14,height:12,fill:'#000',stroke:'#fff','stroke-width':1.3},q);
 [-1,1].forEach(function(k){
