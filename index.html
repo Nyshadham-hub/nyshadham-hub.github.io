@@ -48,7 +48,7 @@
 .wq-row.hot.done .wq-flag{opacity:1}
 @media(max-width:600px){.wq-row{grid-template-columns:70px 1fr 44px;}.wq-flag{grid-column:1/-1}}
 /* Hide the moon and orbit line from the star scene on this page only */
-#scene image,#scene [id*="moon" i],#scene [class*="moon" i],[id*="moon" i]:not(body):not(main),[class*="moon" i],#scene [stroke-dasharray]{display:none!important}
+#scene image,#scene [id*="moon" i],#scene [class*="moon" i],[id*="moon" i]:not(body):not(main),[class*="moon" i],#scene [stroke-dasharray],#scene use,#scene path,#scene ellipse,#scene polygon,#scene polyline,#scene [id*="sat" i],#scene [class*="sat" i],#scene [id*="orbit" i],#scene [class*="orbit" i]{display:none!important}
 @media(max-width:700px){.home-list li{grid-template-columns:1fr;gap:.1rem}}
 </style>
 </head>
@@ -71,7 +71,7 @@
 </div>
 </div>
 <div class="hero-photo">
-<img src="photo.jpeg" alt="Portrait of Nyshadham Sai Karthikeya" width="400" height="500">
+<img src="photo.jepg" alt="Portrait of Nyshadham Sai Karthikeya" width="400" height="500">
 </div>
 </div>
 <div class="facts" style="margin-top:3rem">
@@ -246,8 +246,8 @@ size();if(reduce){draw()}else{requestAnimationFrame(tick)}
 <script>
 /* Safety net: also hide moon/orbit elements that scene.js adds after the page loads */
 (function(){
-var sel='#scene image,#scene [id*="moon" i],#scene [class*="moon" i],[class*="moon" i],#scene [stroke-dasharray]';
-function hide(){document.querySelectorAll(sel).forEach(function(n){n.style.display='none'})}
+var sel='#scene image,#scene [id*="moon" i],#scene [class*="moon" i],[class*="moon" i],#scene [stroke-dasharray],#scene use,#scene path,#scene ellipse,#scene polygon,#scene polyline,#scene [id*="sat" i],#scene [class*="sat" i],#scene [id*="orbit" i],#scene [class*="orbit" i]';
+function hide(){document.querySelectorAll(sel).forEach(function(n){n.style.display='none'});document.querySelectorAll('#scene animateMotion').forEach(function(m){if(m.parentNode&&m.parentNode.style)m.parentNode.style.display='none'})}
 hide();
 var sc=document.getElementById('scene');
 if(sc&&window.MutationObserver){new MutationObserver(hide).observe(sc,{childList:true,subtree:true})}
