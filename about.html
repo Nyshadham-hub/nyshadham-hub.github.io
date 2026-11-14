@@ -1,26 +1,114 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#000000"><meta name="description" content="M.Tech Geoinformatics, NIT Warangal. SAR, hyperspectral and DEM analysis. Open to Geospatial and GIS Analyst roles."><title>About | Nyshadham Sai Karthikeya</title><link rel="preload" href="inter.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="source-serif.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="style.css"></head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#8c1515">
+<meta name="description" content="M.Tech Geoinformatics, NIT Warangal. SAR, hyperspectral and DEM analysis. Open to Geospatial and GIS Analyst roles.">
+<title>About | Nyshadham Sai Karthikeya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cardinal: #8c1515; --cardinal-dark: #6f1010;
+    --ink: #2e2d29; --muted: #5f5e58; --paper: #fff; --wash: #f4f4f4; --line: #d9d8d4;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 18px; line-height: 1.65; }
+  a { color: var(--cardinal); }
+  a:focus-visible { outline: 3px solid var(--cardinal); outline-offset: 3px; }
+
+  .topbar { background: var(--cardinal); color: #fff; }
+  .topbar div { max-width: 1120px; margin: 0 auto; padding: 0.45rem 1.5rem; font-size: 0.9rem; }
+  header { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 5; }
+  nav { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 68px; flex-wrap: wrap; }
+  .wordmark { font-family: var(--serif); font-weight: 700; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+  nav ul { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+  nav ul a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.98rem; padding: 0.25rem 0; border-bottom: 3px solid transparent; }
+  nav ul a:hover, nav ul a[aria-current="page"] { border-bottom-color: var(--cardinal); }
+
+  .page-title { background: var(--wash); border-bottom: 1px solid var(--line); }
+  .page-title div { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+  .page-title h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); margin: 0; line-height: 1.15; }
+  .page-title p { margin: 0.4rem 0 0; color: var(--muted); }
+
+  main { max-width: 1120px; margin: 0 auto; padding: 3.5rem 1.5rem 4rem; display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start; }
+  .prose { max-width: 62ch; }
+  .prose p { margin: 0 0 1.25rem; }
+  .prose p:first-child { font-family: var(--serif); font-size: 1.25rem; line-height: 1.55; }
+
+  aside h2 { font-family: var(--serif); font-size: 1.15rem; margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--cardinal); }
+  .facts { display: grid; gap: 0; margin-bottom: 2.5rem; }
+  .facts div { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .facts b { display: block; font-family: var(--serif); font-size: 2rem; line-height: 1.1; color: var(--cardinal); }
+  .facts span { color: var(--muted); font-size: 0.98rem; }
+  .edu { list-style: none; margin: 0; padding: 0; }
+  .edu li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+  .edu strong { font-family: var(--serif); display: block; }
+  .edu span { color: var(--muted); font-size: 0.95rem; }
+
+  footer { border-top: 1px solid var(--line); background: var(--wash); }
+  footer div { max-width: 1120px; margin: 0 auto; padding: 1.5rem; color: var(--muted); font-size: 0.92rem; }
+
+  @media (max-width: 860px) { main { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 2.25rem; } }
+</style>
+</head>
 <body>
-<svg id="scene" aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 800"></svg>
-<header><nav aria-label="Main"><b><a href="index.html" style="text-decoration:none">N. Sai Karthikeya</a></b><a href="index.html">Home</a><a href="about.html" aria-current="page">About</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="awards.html">Awards</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></nav></header>
-<main>
-<section id="about">
-<h2>About</h2>
-<div class="two">
-<div>
-<p style="margin-top:0">I am a second-year M.Tech student in Geoinformatics at the National Institute of Technology, Warangal, and a project intern at IIST Thiruvananthapuram, where I build a water quality framework on PRISMA and EnMAP hyperspectral imagery.</p>
-<p>Before geospatial work I spent a year as a Trainee Engineer at Indian Oil Corporation, managing pipeline works, safety inspections and VVIP refuelling logistics. That year taught me to deliver to specifications, budgets and deadlines.</p>
-<p>I am looking for Geospatial Analyst and GIS Analyst roles in remote sensing, EO analytics and GeoAI.</p>
-</div>
-<div class="facts">
-<div><b>3,014</b><span>Survey of India benchmarks used to validate DEMs</span></div>
-<div><b>5</b><span>global DEMs benchmarked across Telangana</span></div>
-<div><b>1 paper</b><span>accepted at IEEE InGRASS 2026</span></div>
-<div><b>500+</b><span>acres mapped in a campus Web GIS</span></div>
-</div>
-</div>
+
+<div class="topbar"><div>Seeking opportunities in geospatial analysis and remote sensing</div></div>
+
+<header>
+  <nav aria-label="Main">
+    <a class="wordmark" href="index.html">N. Sai Karthikeya</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-title" aria-labelledby="about-title">
+  <div>
+    <h1 id="about-title">About</h1>
+    <p>Geoinformatics, remote sensing and elevation modelling</p>
+  </div>
 </section>
+
+<main id="about">
+  <div class="prose">
+    <p>I am a second-year M.Tech student in Geoinformatics at the National Institute of Technology, Warangal, and a project intern at IIST Thiruvananthapuram, where I build a water quality framework on PRISMA and EnMAP hyperspectral imagery.</p>
+    <p>Before geospatial work I spent a year as a Trainee Engineer at Indian Oil Corporation, managing pipeline works, safety inspections and VVIP refuelling logistics. That year taught me to deliver to specifications, budgets and deadlines.</p>
+    <p>I am looking for Geospatial Analyst and GIS Analyst roles in remote sensing, EO analytics and GeoAI.</p>
+  </div>
+
+  <aside aria-label="Highlights and education">
+    <h2>Highlights</h2>
+    <div class="facts">
+      <div><b>3,014</b><span>Survey of India benchmarks used to validate DEMs</span></div>
+      <div><b>5</b><span>global DEMs benchmarked across Telangana</span></div>
+      <div><b>1 paper</b><span>accepted at IEEE InGARSS 2026</span></div>
+      <div><b>500+</b><span>acres mapped in a campus Web GIS</span></div>
+    </div>
+
+    <h2>Education</h2>
+    <ul class="edu">
+      <li><strong>M.Tech, Geoinformatics</strong><span>NIT Warangal, current</span></li>
+      <li><strong>B.Tech, Civil Engineering</strong><span>CMR Technical Campus (JNTUH), 2024</span></li>
+      <li><strong>Diploma, Civil Engineering</strong><span>2021</span></li>
+    </ul>
+  </aside>
 </main>
-<footer>© 2026 Nyshadham Sai Karthikeya. M.Tech Geoinformatics, NIT Warangal. Based in Telangana, India.</footer>
-<script src="scene.js"></script>
-</body></html>
+
+<footer><div>© 2026 Nyshadham Sai Karthikeya. M.Tech Geoinformatics, NIT Warangal. Based in Telangana, India.</div></footer>
+
+</body>
+</html>
