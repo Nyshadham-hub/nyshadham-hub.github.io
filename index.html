@@ -256,7 +256,13 @@ window.addEventListener('load',function(){var sc=document.getElementById('scene'
 /* Safety net: also hide moon/orbit elements that scene.js adds after the page loads */
 (function(){
 var sel='#scene image,#scene [id*="moon" i],#scene [class*="moon" i],[class*="moon" i],#scene [stroke-dasharray],#scene use,#scene path,#scene ellipse,#scene polygon,#scene polyline,#scene [id*="sat" i],#scene [class*="sat" i],#scene [id*="orbit" i],#scene [class*="orbit" i]';
-function hide(){document.querySelectorAll(sel).forEach(function(n){n.style.display='none'});document.querySelectorAll('#scene animateMotion').forEach(function(m){if(m.parentNode&&m.parentNode.style)m.parentNode.style.display='none'})}
+function hideSat(){var sc=document.getElementById('scene');if(!sc)return;
+sc.querySelectorAll('rect,circle,line,polygon,path,ellipse,use,image,g').forEach(function(e){
+try{var b=e.getBBox();}catch(x){return}
+var isG=e.tagName.toLowerCase()==='g';
+if(isG){if(e.children.length>=1&&e.children.length<=10&&b.width>=24&&b.width<=160&&b.height>=14&&b.height<=120)e.style.display='none';return}
+if(b.width>=20&&b.width<=120&&b.height<=60){e.style.display='none';var p=e.parentNode;if(p&&p!==sc&&p.children&&p.children.length<=10&&p.style)p.style.display='none'}})}
+function hide(){hideSat();document.querySelectorAll(sel).forEach(function(n){n.style.display='none'});document.querySelectorAll('#scene animateMotion').forEach(function(m){if(m.parentNode&&m.parentNode.style)m.parentNode.style.display='none'})}
 hide();
 var sc=document.getElementById('scene');
 if(sc&&window.MutationObserver){new MutationObserver(hide).observe(sc,{childList:true,subtree:true})}
