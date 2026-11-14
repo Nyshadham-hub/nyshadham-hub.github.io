@@ -9,11 +9,17 @@
 <div class="item"><div class="when">May 2026 to present<br>Thiruvananthapuram</div><div>
 <h3>Project Intern, Earth &amp; Space Sciences</h3><p class="org">Indian Institute of Space Science and Technology (IIST)</p>
 <ul>
-<li>Building a water quality monitoring framework on PRISMA and EnMAP imagery to find the stream most affected by pollutants within a 50 km buffer of the Krishna (Vijayawada) and Godavari (Ramagundam, Rajahmundry) stretches.</li>
-<li>Processed EnMAP Level-2A scenes (cloud cover 5% or less) from the DLR EOWEB GeoPortal with PRISMA surface reflectance, masking cloud, shadow and land to isolate water pixels.</li>
-<li>Trained Random Forest and SVR models on water-pixel spectra, calibrated to field-measured turbidity and TSS, to produce per-pixel turbidity and TSS maps.</li>
-<li>Used PCA and K-means to classify sediment-, organic- and algal-dominated zones, and linked landscape sources to pollution with hydrological modelling and Random Forest feature importance.</li>
-<li>Next: map hotspots and rank streams with a weighted pollution index.</li>
+<li>Collected and preprocessed PRISMA and EnMAP hyperspectral satellite imagery of the Krishna and Godavari river streams, including atmospheric and glint correction, water/land masking and spectral smoothing.</li>
+<li>Classified water-quality indicators into three groups: Water (chlorophyll-a, COD, TSS, total phosphate,
+turbidity), Soil (texture, soil moisture, nutrients, electrical conductivity, Sentinel-1 SAR information) and
+Mixed (heavy metals and chemicals).</li>
+<li>Built machine learning models (PLSR, Random Forest, XGBoost) to map each parameter from hyperspectral data, with group cross-validation by station. Results: [R2 / RMSE for best parameters].
+</li>
+<li>Analysed seasonal variation and the influence of rainfall, temperature and discharge using lagged correlation, Mann–Kendall trend tests and time-aware models, with CHIRPS/IMD, ERA5-Land and GPM IMERG data.</li>
+<li>Linked pollution to land use, cropping patterns and industrial sources through land-cover classification, change detection and catchment-level analysis, and documented the pollutant types linked to each industry..</li>
+<li>Studied microclimate-driven spatial variation within the streams using Moran’s I and geographically weighted regression</li>
+<li>regression.
+<li>Explained cause–effect relationships among rainfall, runoff, land cover and water quality using SHAP, structural equation modelling and Granger-type tests.</li>
 </ul></div></div>
 <div class="item"><div class="when">Feb 2023 to Feb 2024<br>Begumpet Airport, Hyderabad</div><div>
 <h3>Trainee Engineer (Technical Apprenticeship)</h3><p class="org">Indian Oil Corporation Limited (PSU)</p>
