@@ -7,7 +7,7 @@
 .hero-btn{display:inline-block;padding:.8rem 1.4rem;border-radius:6px;font-weight:600;text-decoration:none;text-shadow:none;border:1px solid #fff;color:#fff}
 .hero-btn.primary{background:#fff;color:#000;text-shadow:none}
 .hero-photo{display:flex;justify-content:center}
-.hero-photo img{display:block;width:100%;max-width:400px;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:0 96px 0 96px;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 70px 14px rgba(150,170,255,.28)}
+#home .hero-photo img,.hero-photo img{display:block!important;width:100%!important;max-width:400px!important;height:auto!important;aspect-ratio:4/5!important;object-fit:cover!important;object-position:top!important;border-radius:0 96px 0 96px!important;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 70px 14px rgba(150,170,255,.28)!important;clip-path:none!important}
 .home-sec{margin-top:4rem}
 .home-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
 .home-card{border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:1.25rem}
@@ -31,6 +31,22 @@
 .gt-replay{background:none;border:1px solid rgba(255,255,255,.4);color:inherit;border-radius:6px;padding:.3rem .8rem;font:inherit;font-size:.9rem;cursor:pointer}
 .gt-replay:hover{background:rgba(255,255,255,.1)}
 .gt-replay:focus-visible{outline:2px solid #f5b301;outline-offset:3px}
+.wq-sub{margin:.2rem 0 0;opacity:.75;font-size:.97rem;max-width:62ch}
+.wq-chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:.9rem 0;padding:0}
+.wq-chips li{border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:.2rem .8rem;font-size:.9rem;opacity:.55;transition:all .25s}
+.wq-chips li.on{opacity:1;border-color:#f5b301;color:#f5b301}
+#wq{display:block;width:100%;touch-action:pan-y;cursor:ew-resize;border-radius:8px}
+.wq-ramp{display:flex;align-items:center;gap:.6rem;margin:.75rem 0 0;font-size:.9rem;opacity:.85}
+.wq-ramp i{flex:0 0 160px;height:.6rem;border-radius:99px;background:linear-gradient(90deg,#2f8cff,#26c6a6,#f5b301,#ff4d3d)}
+.wq-rank{margin:1rem 0 0;display:grid;gap:.55rem}
+.wq-row{display:grid;grid-template-columns:86px 1fr 52px 120px;gap:.75rem;align-items:center;font-size:.95rem}
+.wq-bar{height:.55rem;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
+.wq-bar i{display:block;height:100%;width:0;border-radius:99px;background:#7cc4ff}
+.wq-row.hot .wq-bar i{background:#ff4d3d}
+.wq-row b{font-variant-numeric:tabular-nums;font-weight:600}
+.wq-flag{color:#ff6a5c;font-size:.85rem;opacity:0;transition:opacity .3s}
+.wq-row.hot.done .wq-flag{opacity:1}
+@media(max-width:600px){.wq-row{grid-template-columns:70px 1fr 44px;}.wq-flag{grid-column:1/-1}}
 @media(max-width:700px){.home-list li{grid-template-columns:1fr;gap:.1rem}}
 </style>
 </head>
@@ -49,11 +65,11 @@
 <div class="hero-btns">
 <a class="hero-btn primary" href="contact.html">Get in touch</a>
 <a class="hero-btn" href="projects.html">See my work</a>
-<a class="hero-btn" href="Nyshadham_CV.pdf">Download CV</a>
+<a class="hero-btn" href="cv.pdf">Download CV</a>
 </div>
 </div>
 <div class="hero-photo">
-<img src="photo.jpeg" alt="Portrait of Nyshadham Sai Karthikeya" width="400" height="500">
+<img src="photo.jpg" alt="Portrait of Nyshadham Sai Karthikeya" width="400" height="500">
 </div>
 </div>
 <div class="facts" style="margin-top:3rem">
@@ -78,6 +94,27 @@
 <li><button type="button" class="gt-replay" id="gt-replay">Replay</button></li>
 </ul>
 <p class="gt-note">Move your cursor or finger across the profile to scan it yourself. Illustrative simulation: the profile is generated, and the real validation used 3,014 Survey of India benchmarks across Telangana.</p>
+</div>
+</section>
+
+<section id="waterscan" class="home-sec" aria-labelledby="wq-title">
+<div class="gt-panel">
+<div class="gt-head">
+<h2 id="wq-title">Which stream carries the most pollution?</h2>
+<span class="gt-count"><b id="wq-n">0</b> of 5 water parameters mapped</span>
+</div>
+<p class="wq-sub">A hyperspectral water quality framework with PRISMA and EnMAP imagery, developed at IIST Thiruvananthapuram. Each pass maps the parameters, then ranks the streams inside the river buffer.</p>
+<ul class="wq-chips" id="wq-chips" aria-label="Water parameters">
+<li>Chlorophyll-a</li><li>COD</li><li>TSS</li><li>Total phosphate</li><li>Turbidity</li>
+</ul>
+<canvas id="wq" role="img" aria-label="Animated river map: a hyperspectral scan colours water pixels by turbidity along a river and three tributary streams, then ranks the streams by a pollution index"></canvas>
+<div class="wq-ramp"><span>Lower turbidity</span><i></i><span>Higher turbidity</span><button type="button" class="gt-replay" id="wq-replay" style="margin-left:auto">Replay</button></div>
+<div class="wq-rank" id="wq-rank" aria-label="Stream ranking by weighted pollution index">
+<div class="wq-row"><span>Stream A</span><div class="wq-bar"><i></i></div><b>0.00</b><span class="wq-flag">Most affected</span></div>
+<div class="wq-row hot"><span>Stream B</span><div class="wq-bar"><i></i></div><b>0.00</b><span class="wq-flag">Most affected</span></div>
+<div class="wq-row"><span>Stream C</span><div class="wq-bar"><i></i></div><b>0.00</b><span class="wq-flag">Most affected</span></div>
+</div>
+<p class="gt-note">Move your cursor or finger across the map to scan it yourself. Illustrative simulation: the river, streams and index values are generated to show the workflow, not real measurements.</p>
 </div>
 </section>
 
@@ -146,6 +183,60 @@ cv.addEventListener('pointermove',function(e){manual=true;setFrom(e)});
 cv.addEventListener('pointerdown',function(e){manual=true;setFrom(e)});
 cv.addEventListener('pointerleave',function(){manual=false;hold=0});
 document.getElementById('gt-replay').addEventListener('click',function(){p=0;hold=0;manual=false;if(reduce)p=1});
+window.addEventListener('resize',size);
+size();if(reduce){draw()}else{requestAnimationFrame(tick)}
+})();
+</script>
+<script>
+(function(){
+var cv=document.getElementById('wq'); if(!cv) return;
+var ctx=cv.getContext('2d'),nEl=document.getElementById('wq-n');
+var chips=document.querySelectorAll('#wq-chips li'),rows=document.querySelectorAll('#wq-rank .wq-row');
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var W=0,H=0,dpr=1;
+function ramp(v){var st=[[0,47,140,255],[.35,38,198,166],[.65,245,179,1],[1,255,77,61]],i;v=Math.max(0,Math.min(1,v));
+for(i=1;i<st.length;i++){if(v<=st[i][0]){var a=st[i-1],b=st[i],f=(v-a[0])/(b[0]-a[0]);return'rgb('+Math.round(a[1]+(b[1]-a[1])*f)+','+Math.round(a[2]+(b[2]-a[2])*f)+','+Math.round(a[3]+(b[3]-a[3])*f)+')'}}return'rgb(255,77,61)'}
+function my(x){return .56+.1*Math.sin(x*6.5+.5)+.035*Math.sin(x*15+1)}
+var streams=[],i,u;
+var main=[];for(i=0;i<=260;i++){var x=i/260,v;
+if(x<.35)v=.14+.05*Math.sin(x*20);else if(x<.58)v=.2+.12*((x-.35)/.23);else if(x<.78)v=.5+.12*Math.sin((x-.58)*9);else v=.5-.05*((x-.78)/.22);
+main.push({x:x,y:my(x),v:v})}
+function trib(x0,y0,xj,k,vf){var a=[];for(var j=0;j<=130;j++){var u=j/130;a.push({x:x0+(xj-x0)*u+.012*Math.sin(u*9+k),y:y0+(my(xj)-y0)*u+.028*Math.sin(u*8+k),v:vf(u),u:u})}return a}
+var tA=trib(.1,.1,.35,1,function(u){return .2+.12*u});
+var tB=trib(.42,.97,.58,2,function(u){return .25+.6*Math.pow(u,1.5)});
+var tC=trib(.6,.07,.78,3,function(u){return .22+.25*u});
+var trs=[{p:tA,xj:.35,val:.32},{p:tB,xj:.58,val:.85},{p:tC,xj:.78,val:.47}];
+var all=[main,tA,tB,tC];
+var stations=[[main,.14],[main,.45],[main,.7],[main,.92],[tA,.9],[tB,.45],[tB,.95],[tC,.75]];
+function X(p){return p.x*W}function Y(p){return p.y*H}
+function size(){dpr=window.devicePixelRatio||1;W=cv.clientWidth;H=Math.max(240,Math.round(W*.4));cv.style.height=H+'px';cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+var p=reduce?1:0,manual=false,hold=0,last=0;
+function line(arr,w,c){ctx.beginPath();for(var i=0;i<arr.length;i++){i?ctx.lineTo(X(arr[i]),Y(arr[i])):ctx.moveTo(X(arr[i]),Y(arr[i]))}ctx.strokeStyle=c;ctx.lineWidth=w;ctx.lineJoin='round';ctx.stroke()}
+function clamp(v){return Math.max(0,Math.min(1,v))}
+function draw(){
+ctx.clearRect(0,0,W,H);
+line(main,H*.36,'rgba(255,255,255,.035)');
+ctx.fillStyle='rgba(255,255,255,.4)';ctx.font='12px sans-serif';ctx.fillText('50 km buffer',10,H-10);
+all.forEach(function(a,k){line(a,k?1.4:2,'rgba(255,255,255,.2)')});
+var rad=Math.max(1.8,W/330),sx=p*W;
+all.forEach(function(a,k){var rr=k?rad:rad*1.35;for(var i=0;i<a.length;i++){if(a[i].x>p)continue;ctx.fillStyle=ramp(a[i].v);ctx.beginPath();ctx.arc(X(a[i]),Y(a[i]),rr,0,6.283);ctx.fill()}});
+stations.forEach(function(s){var pt=s[0][Math.round(s[1]*(s[0].length-1))];if(pt.x>p)return;ctx.strokeStyle='#f5b301';ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(X(pt),Y(pt),rad*2.3,0,6.283);ctx.stroke()});
+var sy0=16,beam=ctx.createLinearGradient(0,sy0,0,H);beam.addColorStop(0,'rgba(124,196,255,.3)');beam.addColorStop(1,'rgba(124,196,255,0)');
+ctx.fillStyle=beam;ctx.beginPath();ctx.moveTo(sx-3,sy0+6);ctx.lineTo(sx+3,sy0+6);ctx.lineTo(sx+20,H);ctx.lineTo(sx-20,H);ctx.closePath();ctx.fill();
+ctx.strokeStyle='rgba(124,196,255,.9)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(sx,sy0+6);ctx.lineTo(sx,H);ctx.stroke();
+ctx.fillStyle='#fff';ctx.fillRect(sx-6,sy0-4,12,10);ctx.fillStyle='#7cc4ff';ctx.fillRect(sx-22,sy0-2,14,6);ctx.fillRect(sx+8,sy0-2,14,6);
+var th=[.15,.35,.55,.75,.95],n=0;
+chips.forEach(function(c,i){var on=p>=th[i];if(on)n++;c.classList.toggle('on',on)});nEl.textContent=n;
+rows.forEach(function(r,i){var t=trs[i],f=clamp((p-(t.xj-.1))/.3),v=t.val*f;
+r.querySelector('.wq-bar i').style.width=(v*100)+'%';r.querySelector('b').textContent=v.toFixed(2);r.classList.toggle('done',f>=.99)})}
+function tick(ts){var dt=last?ts-last:0;last=ts;
+if(!manual&&!reduce){if(p<1)p=Math.min(1,p+dt/11000);else{hold+=dt;if(hold>4500){p=0;hold=0}}}
+draw();requestAnimationFrame(tick)}
+function setFrom(e){var b=cv.getBoundingClientRect();p=clamp((e.clientX-b.left)/b.width)}
+cv.addEventListener('pointermove',function(e){manual=true;setFrom(e)});
+cv.addEventListener('pointerdown',function(e){manual=true;setFrom(e)});
+cv.addEventListener('pointerleave',function(){manual=false;hold=0});
+document.getElementById('wq-replay').addEventListener('click',function(){p=reduce?1:0;hold=0;manual=false});
 window.addEventListener('resize',size);
 size();if(reduce){draw()}else{requestAnimationFrame(tick)}
 })();
