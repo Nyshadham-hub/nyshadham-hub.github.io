@@ -42,7 +42,7 @@ var grid=document.getElementById('gallery-grid'),lb=document.getElementById('lb'
 PHOTOS.forEach(function(p,i){
  var t=new Image();
  t.onload=function(){ok[i]=true;done()};
- t.onerror=function(){ok[i]=false;done()};
+ t.onerror=function(){console.warn('Missing photo:',p[0]);ok[i]=false;done()};
  t.src=p[0];
 });
 function done(){
